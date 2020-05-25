@@ -22,10 +22,13 @@
     @include('layouts._header')
 
     <div class="container">
-      @yield('content')
-      @include('layouts._footer')
+      <div class="offset-md-1 col-md-10">
+        @include('shared._messages')
+        @yield('content')
+        @include('layouts._footer')
+      </div>
     </div>
-    
+
     <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
