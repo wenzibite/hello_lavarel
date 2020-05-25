@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/', 'StaticPagesController@home')->name('home');
 Route::get('/help', 'StaticPagesController@help')->name('help');
 Route::get('/about', 'StaticPagesController@about')->name('about');
@@ -33,3 +29,7 @@ Route::patch('/users/{user}', 'UsersController@update')->name('users.update');
 Route::delete('/users/{user}', 'UsersController@destroy')->name('users.destroy');
 */
 
+//会话控制
+Route::get('login', 'SessionsController@create')->name('login');
+Route::post('login', 'SessionsController@store')->name('login');
+Route::delete('logout', 'SessionsController@destroy')->name('logout');
