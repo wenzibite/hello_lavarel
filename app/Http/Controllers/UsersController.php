@@ -34,7 +34,8 @@ class UsersController extends Controller
 
     public function show(User $user)
     {
-        return view('users.show', compact('user'));
+        $statuses = $user->statuses()->orderBy('created_at', 'desc')->paginate(10);
+        return view('users.show', compact('user','statuses'));
     }
 
     //
@@ -112,7 +113,7 @@ class UsersController extends Controller
         // });
         Mail::send($view, $data, function ($message) use ($to, $subject) {
             $message->to($to)->subject($subject);
-        })
+        });
     }
 
     //激活
